@@ -7,4 +7,4 @@ Para mantener al día:
 - Actualizar el package.json con las últimas versiones
 - hacer npm install para actualizar las dependencias
 - ejecutar los tests `npm run test` y ver que todo sigue funcionando correctamente
-- Ejecutar el main.ts `npm run dev` para que el ts-node ejecute el programaca principal.
+- Ejecutar el main.ts `npm run dev src/main.ts` para que el ts-node ejecute el programa principal.
