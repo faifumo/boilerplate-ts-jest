@@ -8,3 +8,4 @@ Para mantener al día:
 - hacer npm install para actualizar las dependencias
 - ejecutar los tests `npm run test` y ver que todo sigue funcionando correctamente
 - Ejecutar el main.ts `npm run dev src/main.ts` para que el ts-node ejecute el programa principal.
+- change the aa.js file in order to check if eslint is working, when we save this file we'll see as eslintrc correct the problems.
