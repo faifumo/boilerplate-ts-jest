@@ -4,6 +4,19 @@ on:
         branches:
             - master
             - main
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+   contents: write
+   pages: write
+   id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+
 jobs:
     coverage:
         runs-on: ubuntu-latest
@@ -16,5 +29,14 @@ jobs:
               with:
                   annotations: failed-tests
                   test-script: npm run test:coverage
-                  coverage-file: ./coverage/coverage-final.json
-                  base-coverage-file: ./coverage/master/coverage-final.json
+                  threshold: 80
+            - name: Setup Pages
+              uses: actions/configure-pages@v2
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v1
+              with:
+                path: './coverage'
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v1
+          
