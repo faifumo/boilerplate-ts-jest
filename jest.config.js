@@ -1,5 +1,14 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  coverageReporters: ['text','json', 'html', 'json-summary'],
+  coverageReporters: ['text-summary','json', 'html'],
+  coverageThreshold: { 
+    // https://jestjs.io/docs/configuration#coveragethreshold-object
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
+    },
+  },
 };
