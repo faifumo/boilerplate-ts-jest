@@ -1,4 +1,4 @@
-import {sum} from './sum';
+import {sum} from './math';
 
 test('should return the sum of two numbers given', () => {
   // Arrange
