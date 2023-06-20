@@ -16,5 +16,5 @@ jobs:
               with:
                   annotations: failed-tests
                   test-script: npm run test:coverage
-                  coverage-file: ./coverage/report.json
-                  base-coverage-file: ./coverage/master/report.json
+                  coverage-file: ./coverage/coverage-final.json
+                  base-coverage-file: ./coverage/master/coverage-final.json
