@@ -26,8 +26,10 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v3
             - name: Show TOKENS
+              env:
+                ORG_FF_TOKEN: ${{ secrets.FF_TOKEN }}
               run: |
-                echo "${{ env.FF_TOKEN }}"
+                echo "${{ env.ORG_FF_TOKEN }}"
             - name: Test coverage
               uses: ArtiomTr/jest-coverage-report-action@v2
               with:
@@ -39,7 +41,7 @@ jobs:
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v1
               with:
-                path: './'
+                path: './coverage'
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v1
