@@ -23,11 +23,11 @@ export const failCoverage = (a:number, b:number, operation: string): number => {
     return a + b;
   } else if (operation === OPERATION.SUBTRACT) {
     return subtract(a,b);
-  }
-
-  if (operation === OPERATION.SUM) {
+  } else {
     return a + b;
   } 
+
+  
   
   return 0;
 };
