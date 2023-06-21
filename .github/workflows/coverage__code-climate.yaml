@@ -1,0 +1,23 @@
+name: 'Coverage Code Climate'
+on:
+    pull_request:
+        branches:
+            - master
+            - main
+
+jobs:
+  coverage_codeclimate:
+      needs: [ test ]
+      name: coverage
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: '16'
+      - run: npm ci
+      - uses: paambaati/codeclimate-action@v2.2.4
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.TEST_ID_CODE_CLIMATE }}
+        with:
+          coverageCommand: npm run test --coverage
