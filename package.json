@@ -1,4 +1,5 @@
 {
+  "main": "src/main.ts",
   "scripts": {
     "dev": "ts-node",
     "test": "jest",
