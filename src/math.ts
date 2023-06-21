@@ -23,5 +23,9 @@ export const failCoverage = (a:number, b:number, operation: string): number => {
     return sum(a,b);
   }
   
+  if (operation === OPERATION.SUBTRACT) {
+    return sum(a,b);
+  }
+  
   return 0;
 };
