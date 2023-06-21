@@ -7,11 +7,12 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
+   pull-requests: write
    contents: write
    pages: write
    id-token: write
 
-# Allow one concurrent deployment
+# Allow one concurrent deployment.
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -24,6 +25,11 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v3
+            - name: Show TOKENS
+              env:
+                ORG_FF_TOKEN: ${{ secrets.FF_TOKEN }}
+              run: |
+                echo "${{ env.ORG_FF_TOKEN }}"
             - name: Test coverage
               uses: ArtiomTr/jest-coverage-report-action@v2
               with:
