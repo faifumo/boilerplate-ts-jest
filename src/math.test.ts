@@ -13,7 +13,7 @@ test('should return the sum of two numbers given', () => {
   expect(result).toBe(expected);
 });
 
-test('Fail coverage', () => {
+test('Fail coverage sum', () => {
   // Arrange
   const a = 1;
   const b = 2;
@@ -21,6 +21,19 @@ test('Fail coverage', () => {
      
   // Act
   const result = failCoverage(a,b, 'sum');
+     
+  // Assert
+  expect(result).toBe(expected);
+});
+
+test('Fail coverage subtract', () => {
+  // Arrange
+  const a = 1;
+  const b = 2;
+  const expected = -1;
+     
+  // Act
+  const result = failCoverage(a,b, 'subtract');
      
   // Assert
   expect(result).toBe(expected);
