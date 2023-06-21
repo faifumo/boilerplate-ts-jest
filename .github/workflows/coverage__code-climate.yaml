@@ -1,0 +1,25 @@
+name: 'Coverage Code Climate'
+on:
+    workflow_dispatch:
+    pull_request:
+        branches:
+            - master
+            - main
+
+jobs:
+  coverage_codeclimate:
+      name: coverage
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: '16'
+      - run: npm ci
+      - uses: paambaati/codeclimate-action@v4.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.TEST_ID_CODE_CLIMATE }}
+        with:
+          coverageCommand: npm run test -- --coverage
+          coverageLocations: |
+            ${{github.workspace}}/coverage/lcov.info:lcov
